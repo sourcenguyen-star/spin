@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vòng quay may mắn - Quay và nhận ngay món uống yêu thích">
+    <title>🎡 Vòng Quay May Mắn 🎡</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700;800&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #FFB6C1 0%, #FFA0B8 50%, #FF8FAB 100%);
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Cute floating elements */
+        .floating-emoji {
+            position: fixed;
+            font-size: 40px;
+            opacity: 0.15;
+            animation: float-around 15s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float-around {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-30px) rotate(10deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(-10deg);
+            }
+
+            75% {
+                transform: translateY(-25px) rotate(5deg);
+            }
+        }
+
+        .emoji-1 {
+            top: 10%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .emoji-2 {
+            top: 20%;
+            right: 20%;
+            animation-delay: 2s;
+        }
+
+        .emoji-3 {
+            bottom: 15%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+
+        .emoji-4 {
+            bottom: 25%;
+            right: 15%;
+            animation-delay: 6s;
+        }
+
+        .emoji-5 {
+            top: 50%;
+            left: 5%;
+            animation-delay: 1s;
+        }
+
+        .emoji-6 {
+            top: 40%;
+            right: 8%;
+            animation-delay: 3s;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+        }
+
+        .header {
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            text-shadow:
+                3px 3px 0px #FF69B4,
+                6px 6px 0px rgba(255, 105, 180, 0.5);
+            animation: bounce-title 2s ease-in-out infinite;
+            font-family: 'Pacifico', cursive;
+        }
+
+        @keyframes bounce-title {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .subtitle {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.6);
+            animation: pulse-subtitle 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-subtitle {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        .wheel-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .wheel-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Cute decorative stars around wheel */
+        .star-decoration {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: twinkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2) rotate(180deg);
+            }
+        }
+
+        .star-1 {
+            top: -20px;
+            left: -20px;
+            animation-delay: 0s;
+        }
+
+        .star-2 {
+            top: -20px;
+            right: -20px;
+            animation-delay: 0.3s;
+        }
+
+        .star-3 {
+            bottom: -20px;
+            left: -20px;
+            animation-delay: 0.6s;
+        }
+
+        .star-4 {
+            bottom: -20px;
+            right: -20px;
+            animation-delay: 0.9s;
+        }
+
+        /* Cute rainbow border */
+        .wheel-frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            border: 10px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                linear-gradient(45deg, #FF6B9D, #C44569, #FFA07A, #FFD700, #98D8C8, #6A89CC, #B19CD9) border-box;
+            box-shadow: 0 0 40px rgba(255, 107, 157, 0.6);
+            z-index: -1;
+            animation: rotate-rainbow 10s linear infinite;
+        }
+
+        @keyframes rotate-rainbow {
+            from {
+                filter: hue-rotate(0deg);
+            }
+
+            to {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        /* Cute pointer/arrow */
+        .pointer {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 35px solid transparent;
+            border-right: 35px solid transparent;
+            border-top: 65px solid #FF69B4;
+            z-index: 10;
+            filter: drop-shadow(0 5px 15px rgba(255, 105, 180, 0.6));
+            animation: bounce-pointer 1s ease-in-out infinite;
+        }
+
+        @keyframes bounce-pointer {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-8px);
+            }
+        }
+
+        .pointer::after {
+            content: '👇';
+            position: absolute;
+            top: -63px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
+        }
+
+        /* Wheel */
+        .wheel {
+            width: 480px;
+            height: 480px;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            border: 15px solid #fff;
+            box-shadow:
+                0 0 0 5px #FF69B4,
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                inset 0 0 50px rgba(255, 255, 255, 0.2);
+            transition: transform 6s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+            background: #fff;
+        }
+
+        /* Center Circle - Super Cute! */
+        .center-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-radius: 50%;
+            border: 8px solid white;
+            box-shadow:
+                0 0 0 5px #FF69B4,
+                0 8px 25px rgba(255, 105, 180, 0.6);
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: white;
+            font-size: 1.4rem;
+            text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.8);
+            animation: pulse-center 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-center {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.08);
+            }
+        }
+
+        .center-circle::before {
+            content: '✨';
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        /* Wheel Segments */
+        .segment {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 50%;
+            transform-origin: 0% 100%;
+            overflow: hidden;
+        }
+
+        .segment-content {
+            position: absolute;
+            left: -100%;
+            top: 0;
+            width: 200%;
+            height: 200%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.72rem;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            transform-origin: 50% 100%;
+            text-align: center;
+        }
+
+        /* Control Panel */
+        .control-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.8rem;
+        }
+
+        .spin-button {
+            padding: 1.8rem 4.5rem;
+            font-size: 2rem;
+            font-weight: 900;
+            color: white;
+            background: linear-gradient(135deg, #FF69B4, #FF1493, #C71585);
+            border: none;
+            border-radius: 70px;
+            cursor: pointer;
+            box-shadow:
+                0 0 0 5px white,
+                0 0 0 8px #FF69B4,
+                0 15px 40px rgba(255, 105, 180, 0.6);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Quicksand', sans-serif;
+            position: relative;
+            overflow: hidden;
+            animation: button-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes button-glow {
+
+            0%,
+            100% {
+                filter: brightness(1);
+            }
+
+            50% {
+                filter: brightness(1.2);
+            }
+        }
+
+        .spin-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .spin-button:hover:not(:disabled)::before {
+            width: 500px;
+            height: 500px;
+        }
+
+        .spin-button:hover:not(:disabled) {
+            transform: translateY(-8px) scale(1.08);
+            box-shadow:
+                0 0 0 5px white,
+                0 0 0 8px #FF69B4,
+                0 20px 50px rgba(255, 105, 180, 0.8);
+        }
+
+        .spin-button:active:not(:disabled) {
+            transform: translateY(-4px) scale(1.05);
+        }
+
+        .spin-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .name-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .name-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: 4px solid white;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #FF69B4;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.3);
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .name-input::placeholder {
+            color: rgba(255, 105, 180, 0.6);
+        }
+
+        .name-input:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 5px 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .spin-count {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: rgba(255, 105, 180, 0.3);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            border: 3px solid white;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
+            text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.6);
+        }
+
+        .share-button {
+            padding: 0.9rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border: 3px solid white;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s ease;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .share-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+        }
+
+        /* History Panel */
+        .history-panel {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border: 5px solid #FF69B4;
+            border-radius: 20px;
+            padding: 1.5rem;
+            max-width: 350px;
+            max-height: 400px;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(255, 105, 180, 0.4);
+            z-index: 100;
+        }
+
+        .history-panel h3 {
+            color: #FF69B4;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .history-item {
+            background: linear-gradient(135deg, #FFB6C1, #FFA0B8);
+            padding: 0.8rem;
+            margin-bottom: 0.8rem;
+            border-radius: 12px;
+            border: 2px solid white;
+        }
+
+        .history-name {
+            font-weight: 800;
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .history-prize {
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+
+        .history-time {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.3rem;
+        }
+
+        .clear-history {
+            width: 100%;
+            padding: 0.6rem;
+            margin-top: 0.8rem;
+            background: #FF69B4;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .clear-history:hover {
+            background: #FF1493;
+            transform: scale(1.02);
+        }
+
+        /* Notification Modal - Cute Style */
+        .notification-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 105, 180, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .notification-overlay.show {
+            display: flex;
+        }
+
+        .notification-modal {
+            background: linear-gradient(135deg, #FFB6C1, #FFA0B8);
+            border: 8px solid white;
+            box-shadow:
+                0 0 0 5px #FF69B4,
+                0 25px 70px rgba(0, 0, 0, 0.4);
+            border-radius: 35px;
+            padding: 3.5rem;
+            max-width: 650px;
+            width: 90%;
+            text-align: center;
+            animation: slideUp 0.5s ease-out, modal-bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes modal-bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .notification-icon {
+            font-size: 6rem;
+            margin-bottom: 1.5rem;
+            animation: rotate-celebrate 1s ease-out;
+            filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.3));
+        }
+
+        @keyframes rotate-celebrate {
+            0% {
+                transform: rotate(0deg) scale(0.5);
+            }
+
+            50% {
+                transform: rotate(180deg) scale(1.2);
+            }
+
+            100% {
+                transform: rotate(360deg) scale(1);
+            }
+        }
+
+        .notification-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.8rem;
+            text-shadow:
+                3px 3px 0px #FF69B4,
+                5px 5px 10px rgba(255, 105, 180, 0.6);
+            font-family: 'Pacifico', cursive;
+        }
+
+        .notification-prize {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.3);
+            border: 5px solid white;
+            border-radius: 25px;
+            text-shadow: 2px 2px 6px rgba(255, 105, 180, 0.8);
+            animation: prize-bounce 1s ease-in-out infinite;
+        }
+
+        @keyframes prize-bounce {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .notification-message {
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.6);
+        }
+
+        .close-button {
+            padding: 1.4rem 3.5rem;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #FF69B4;
+            background: white;
+            border: 5px solid #FF69B4;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Quicksand', sans-serif;
+            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.5);
+        }
+
+        .close-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: #FF69B4;
+            color: white;
+            box-shadow: 0 12px 35px rgba(255, 105, 180, 0.7);
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            animation: confetti-fall 3.5s linear forwards;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Hearts floating animation */
+        .heart {
+            position: fixed;
+            font-size: 30px;
+            animation: float-hearts 4s ease-in forwards;
+            pointer-events: none;
+        }
+
+        @keyframes float-hearts {
+            0% {
+                transform: translateY(0) scale(0);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(-50vh) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(80px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .wheel {
+                width: 340px;
+                height: 340px;
+            }
+
+            .wheel-frame {
+                width: 380px;
+                height: 380px;
+            }
+
+            .segment-content {
+                font-size: 0.58rem;
+                padding-left: 38%;
+            }
+
+            .center-circle {
+                width: 85px;
+                height: 85px;
+                font-size: 1rem;
+            }
+
+            .spin-button {
+                padding: 1.4rem 3rem;
+                font-size: 1.6rem;
+            }
+
+            .wheel-section {
+                gap: 2rem;
+            }
+
+            .notification-title {
+                font-size: 2rem;
+            }
+
+            .notification-prize {
+                font-size: 1.6rem;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wheel {
+                width: 300px;
+                height: 300px;
+            }
+
+            .wheel-frame {
+                width: 340px;
+                height: 340px;
+            }
+
+            .segment-content {
+                font-size: 0.52rem;
+                padding-left: 35%;
+            }
+
+            .center-circle {
+                width: 75px;
+                height: 75px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating cute emojis -->
+    <div class="floating-emoji emoji-1">☕</div>
+    <div class="floating-emoji emoji-2">🧋</div>
+    <div class="floating-emoji emoji-3">🥤</div>
+    <div class="floating-emoji emoji-4">🍵</div>
+    <div class="floating-emoji emoji-5">🍹</div>
+    <div class="floating-emoji emoji-6">🧃</div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🎡 Vòng Quay May Mắn 🎡</h1>
+            <p class="subtitle">✨ Quay và nhận ngay món uống yêu thích! ✨</p>
+        </div>
+
+        <div class="wheel-section">
+            <div class="wheel-container">
+                <div class="star-decoration star-1">⭐</div>
+                <div class="star-decoration star-2">✨</div>
+                <div class="star-decoration star-3">💫</div>
+                <div class="star-decoration star-4">🌟</div>
+                <div class="wheel-frame"></div>
+                <div class="pointer"></div>
+                <div class="wheel" id="wheel">
+                    <!-- Segments will be generated by JavaScript -->
+                </div>
+                <div class="center-circle">QUAY</div>
+            </div>
+
+            <div class="control-panel">
+                <div class="name-input-group">
+                    <input type="text" id="nameInput" class="name-input" placeholder="💝 Nhập tên của bạn..."
+                        maxlength="30">
+                </div>
+                <button class="spin-button" id="spinButton">
+                    <span style="position: relative; z-index: 1;">🎰 QUAY NGAY 🎰</span>
+                </button>
+                <button class="share-button" id="shareButton">🔗 Sao chép link chia sẻ</button>
+                <div class="spin-count" id="spinCount">🎉 Số lần quay: 0 🎉</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Panel -->
+    <div class="history-panel" id="historyPanel">
+        <h3>📜 Lịch Sử Quay</h3>
+        <div id="historyList"></div>
+        <button class="clear-history" id="clearHistory">🗑️ Xóa lịch sử</button>
+    </div>
+
+    <!-- Notification Modal -->
+    <div class="notification-overlay" id="notificationOverlay">
+        <div class="notification-modal">
+            <div class="notification-icon">🎊</div>
+            <h2 class="notification-title">Chúc Mừng Bạn!</h2>
+            <div class="notification-prize" id="prizeText"></div>
+            <p class="notification-message">💖 Bạn đã trúng món uống tuyệt vời! 💖</p>
+            <button class="close-button" id="closeButton">ĐÓNG</button>
+        </div>
+    </div>
+
+    <script>
+        // Complete menu from the café
+        const menuItems = [
+            // CÀ PHÊ
+            { name: 'Cà phê đen', price: 'M 12k/L 17k' },
+            { name: 'Cà phê sữa', price: 'M 15k/L 20k' },
+            { name: 'Cà phê muối', price: 'M 20k/L 25k' },
+            { name: 'Cà phê sữa tươi', price: 'M 20k/L 25k' },
+            { name: 'Bạc xỉu', price: 'M 20k/L 25k' },
+
+            // NƯỚC ÉP
+            { name: 'Cam', price: '25k' },
+            { name: 'Ổi', price: '30k' },
+            { name: 'Táo', price: '30k' },
+            { name: 'Thơm', price: '30k' },
+            { name: 'Cà rốt', price: '30k' },
+            { name: 'Dưa hấu', price: '30k' },
+            { name: 'Thập cẩm', price: '30k' },
+            { name: 'Tự mix', price: '30k' },
+
+            // SỮA CHUA
+            { name: 'Sữa chua Đào', price: '30k' },
+            { name: 'Sữa chua Vải', price: '30k' },
+            { name: 'Sữa chua Dâu', price: '30k' },
+            { name: 'Sữa chua Đác rim', price: '30k' },
+            { name: 'Sữa chua Chanh dây', price: '30k' },
+            { name: 'Sữa chua Việt quất', price: '30k' },
+
+            // TRÀ SỮA
+            { name: 'Trà sữa trân châu', price: '25k' },
+            { name: 'Trà sữa full topping', price: '30k' },
+            { name: 'Matcha full topping', price: '30k' },
+            { name: 'Socola full topping', price: '30k' },
+            { name: 'Kem muối', price: '30k' },
+
+            // SỮA TƯƠI
+            { name: 'Matcha latte', price: '25k' },
+            { name: 'Cacao latte', price: '25k' },
+            { name: 'Matcha sữa hồng', price: '25k' },
+            { name: 'Matcha kem muối', price: '30k' },
+            { name: 'Cacao kem muối', price: '30k' },
+            { name: 'Sữa tươi đác rim', price: '30k' },
+            { name: 'Sữa tươi đường đen', price: '30k' },
+
+            // TRÀ TRÁI CÂY
+            { name: 'Trà tắc ngọc trai', price: '20k' },
+            { name: 'Trà chanh ngọc trai', price: '20k' },
+            { name: 'Trà lài vải hoa hồng', price: '30k' },
+            { name: 'Trà lài long nhãn', price: '30k' },
+            { name: 'Trà lài đác thơm', price: '30k' },
+            { name: 'Trà ngũ vị', price: '30k' },
+            { name: 'Trà đào cam sả', price: '30k' },
+            { name: 'Trà dâu sấy dẻo', price: '30k' },
+            { name: 'Trà mãng cầu', price: '30k' },
+            { name: 'Trà mãng cầu chanh leo', price: '30k' },
+            { name: 'Trà hibiscus đào', price: '30k' },
+            { name: 'Trà hibiscus chuối ngọc', price: '30k' },
+            { name: 'Trà lucky tea', price: '35k' },
+
+            // MÓN KHÁC
+            { name: 'Đá me', price: '25k' },
+            { name: 'Siro 3 tầng', price: '25k' },
+            { name: 'Sâm dứa dầm', price: '25k' },
+            { name: 'Milo dầm', price: '30k' },
+            { name: 'Mãng cầu dầm', price: '30k' },
+            { name: 'Tắc xí muội đác rim', price: '30k' }
+        ];
+
+        // Cute pastel color palette
+        const colorPalette = [
+            '#FFB6C1', '#FFA07A', '#FFD700', '#98D8C8', '#B19CD9',
+            '#FF69B4', '#FF85A2', '#FFA500', '#87CEEB', '#DDA0DD',
+            '#FFB6D9', '#FFDAB9', '#F0E68C', '#B0E0E6', '#DBC4F0',
+            '#FF9ECD', '#FFCBA4', '#FFE4B5', '#AFEEEE', '#E6B8E6',
+            '#FF85C1', '#FFC0CB', '#F0E891', '#ADD8E6', '#D8BFD8',
+            '#FF77A9', '#FFAB91', '#FFE87C', '#B0C4DE', '#E0BBE4'
+        ];
+
+        const wheel = document.getElementById('wheel');
+        const spinButton = document.getElementById('spinButton');
+        const notificationOverlay = document.getElementById('notificationOverlay');
+        const prizeText = document.getElementById('prizeText');
+        const closeButton = document.getElementById('closeButton');
+        const spinCountDisplay = document.getElementById('spinCount');
+        const nameInput = document.getElementById('nameInput');
+        const shareButton = document.getElementById('shareButton');
+        const historyList = document.getElementById('historyList');
+        const clearHistoryBtn = document.getElementById('clearHistory');
+
+        let isSpinning = false;
+        let currentRotation = 0;
+        let spinCount = 0;
+
+        // LocalStorage functions
+        function getHistory() {
+            const history = localStorage.getItem('spinHistory');
+            return history ? JSON.parse(history) : [];
+        }
+
+        function saveToHistory(name, prize, price) {
+            const history = getHistory();
+            const entry = {
+                name: name,
+                prize: prize,
+                price: price,
+                timestamp: new Date().toLocaleString('vi-VN')
+            };
+            history.unshift(entry); // Add to beginning
+            if (history.length > 20) history.pop(); // Keep only last 20
+            localStorage.setItem('spinHistory', JSON.stringify(history));
+            displayHistory();
+        }
+
+        function displayHistory() {
+            const history = getHistory();
+            if (history.length === 0) {
+                historyList.innerHTML = '<p style="text-align: center; color: #FF69B4; font-weight: 600;">Chưa có lịch sử</p>';
+                return;
+            }
+
+            historyList.innerHTML = history.map(entry => `
+                <div class="history-item">
+                    <div class="history-name">👤 ${entry.name}</div>
+                    <div class="history-prize">🎁 ${entry.prize}</div>
+                    <div class="history-prize">💰 ${entry.price}</div>
+                    <div class="history-time">🕐 ${entry.timestamp}</div>
+                </div>
+            `).join('');
+        }
+
+        function clearHistory() {
+            if (confirm('Bạn có chắc muốn xóa toàn bộ lịch sử?')) {
+                localStorage.removeItem('spinHistory');
+                displayHistory();
+            }
+        }
+
+        // Share link function
+        function shareLink() {
+            const url = window.location.origin + window.location.pathname;
+            const history = getHistory();
+
+            if (history.length === 0) {
+                alert('⚠️ Chưa có lịch sử quay nào để chia sẻ!');
+                return;
+            }
+
+            // Encode history data to base64 for URL
+            const historyData = btoa(encodeURIComponent(JSON.stringify(history)));
+            const shareUrl = `${url}?data=${historyData}`;
+
+            navigator.clipboard.writeText(shareUrl).then(() => {
+                alert('✅ Đã sao chép link chia sẻ!\n\nBất kỳ ai có link này đều có thể xem lịch sử quay của bạn! 🎉');
+            }).catch(() => {
+                // Fallback - show URL in prompt
+                prompt('📋 Sao chép link này để chia sẻ:', shareUrl);
+            });
+        }
+
+        // Check URL parameters
+        function checkSharedLink() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const sharedData = urlParams.get('data');
+
+            if (sharedData) {
+                try {
+                    // Decode shared history from URL
+                    const decodedHistory = JSON.parse(decodeURIComponent(atob(sharedData)));
+
+                    if (decodedHistory && decodedHistory.length > 0) {
+                        // Display shared history (don't save to localStorage yet)
+                        historyList.innerHTML = decodedHistory.map(entry => `
+                            <div class="history-item">
+                                <div class="history-name">👤 ${entry.name}</div>
+                                <div class="history-prize">🎁 ${entry.prize}</div>
+                                <div class="history-prize">💰 ${entry.price}</div>
+                                <div class="history-time">🕐 ${entry.timestamp}</div>
+                            </div>
+                        `).join('');
+
+                        setTimeout(() => {
+                            alert(`📜 Lịch sử vòng quay được chia sẻ!\n\nCó ${decodedHistory.length} lượt quay.\nXem chi tiết ở bảng bên phải! 👉`);
+                        }, 500);
+                    }
+                } catch (error) {
+                    console.error('Error loading shared history:', error);
+                }
+            }
+        }
+
+        // Create wheel segments
+        function createWheel() {
+            wheel.innerHTML = '';
+            const segmentAngle = 360 / menuItems.length;
+            const skewAngle = 90 - segmentAngle;
+
+            menuItems.forEach((item, index) => {
+                const segment = document.createElement('div');
+                segment.className = 'segment';
+                segment.style.transform = `rotate(${segmentAngle * index}deg) skewY(${-skewAngle}deg)`;
+
+                const content = document.createElement('div');
+                content.className = 'segment-content';
+                content.style.transform = `skewY(${skewAngle}deg) rotate(${segmentAngle / 2}deg)`;
+                content.style.background = colorPalette[index % colorPalette.length];
+                content.innerHTML = `<div style="max-width: 80px; word-wrap: break-word; line-height: 1.1; padding: 5px;">${item.name}</div>`;
+
+                segment.appendChild(content);
+                wheel.appendChild(segment);
+            });
+        }
+
+        // Spin the wheel
+        function spinWheel() {
+            if (isSpinning) return;
+
+            // Check if name is entered
+            const userName = nameInput.value.trim();
+            if (!userName) {
+                alert('💝 Vui lòng nhập tên của bạn trước khi quay!');
+                nameInput.focus();
+                return;
+            }
+
+            isSpinning = true;
+            spinButton.disabled = true;
+
+            // Random rotation (6-10 full rotations)
+            const spins = 6 + Math.random() * 4;
+            const randomDegree = Math.random() * 360;
+            const totalRotation = (spins * 360) + randomDegree;
+
+            currentRotation += totalRotation;
+            wheel.style.transform = `rotate(${currentRotation}deg)`;
+
+            // Calculate winning item
+            setTimeout(() => {
+                const normalizedRotation = currentRotation % 360;
+                const segmentAngle = 360 / menuItems.length;
+                const adjustedRotation = (360 - normalizedRotation + (segmentAngle / 2)) % 360;
+                const winningIndex = Math.floor(adjustedRotation / segmentAngle);
+                const winningItem = menuItems[winningIndex];
+
+                spinCount++;
+                updateSpinCount();
+
+                // Save to history
+                saveToHistory(userName, winningItem.name, winningItem.price);
+
+                showNotification(winningItem, userName);
+                createConfetti();
+                createHearts();
+
+                isSpinning = false;
+                spinButton.disabled = false;
+            }, 6000);
+        }
+
+        // Show notification
+        function showNotification(item, userName) {
+            prizeText.innerHTML = `
+                <div style="font-size: 1.4rem; margin-bottom: 0.5rem; color: #FFD700;">👤 ${userName}</div>
+                <div style="font-size: 2rem; margin-bottom: 0.8rem;">🎁 ${item.name} 🎁</div>
+                <div style="font-size: 1.5rem; color: white;">✨ ${item.price} ✨</div>
+            `;
+            notificationOverlay.classList.add('show');
+        }
+
+        // Update spin count
+        function updateSpinCount() {
+            spinCountDisplay.textContent = `🎉 Số lần quay: ${spinCount} 🎉`;
+        }
+
+        // Create confetti effect
+        function createConfetti() {
+            const colors = ['#FFB6C1', '#FFA07A', '#FFD700', '#98D8C8', '#B19CD9', '#FF69B4'];
+
+            for (let i = 0; i < 120; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 0.3 + 's';
+                    confetti.style.animationDuration = (Math.random() * 2 + 2.5) + 's';
+                    confetti.style.width = (Math.random() * 12 + 6) + 'px';
+                    confetti.style.height = confetti.style.width;
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    document.body.appendChild(confetti);
+
+                    setTimeout(() => confetti.remove(), 4000);
+                }, i * 15);
+            }
+        }
+
+        // Create floating hearts
+        function createHearts() {
+            const heartEmojis = ['💖', '💕', '💗', '💓', '💝', '💘'];
+
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.animationDelay = Math.random() * 0.5 + 's';
+                    heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => heart.remove(), 5000);
+                }, i * 100);
+            }
+        }
+
+        // Close notification
+        function closeNotification() {
+            notificationOverlay.classList.remove('show');
+        }
+
+        // Event listeners
+        spinButton.addEventListener('click', spinWheel);
+        closeButton.addEventListener('click', closeNotification);
+        shareButton.addEventListener('click', shareLink);
+        clearHistoryBtn.addEventListener('click', clearHistory);
+        notificationOverlay.addEventListener('click', (e) => {
+            if (e.target === notificationOverlay) {
+                closeNotification();
+            }
+        });
+
+        // Initialize wheel and history
+        createWheel();
+        displayHistory();
+        checkSharedLink();
+    </script>
+</body>
+
+</html>
